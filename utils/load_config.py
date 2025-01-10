@@ -106,12 +106,7 @@ def get_accounts(file_name: str, redirect_mode: bool = False) -> Generator[Accou
 
 def validate_domains(accounts: List[Account], domains: Dict[str, str]) -> List[Account]:
     for account in accounts:
-        domain = account.email.split("@")[1]
-        if domain not in domains:
-            raise ValueError(
-                f"Domain '{domain}' is not supported, please add it to the config file"
-            )
-        account.imap_server = domains[domain]
+        account.imap_server = 'imap.firstmail.ltd'
     return accounts
 
 
